@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quizzler_stub/question.dart';
+import 'quiz_brain.dart';
 
 void main() => runApp(Quizzler());
 
@@ -26,13 +28,9 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scorekeeper = [];
-  List<String> questions = [
-    'You can lead a cow downstairs, but not upstairs.',
-    'Approximately one quarter of human bones are in the feet.',
-    'A slug\'s blood is green.'
-  ];
+  List<Question> questionBank = QuizBrain().questionBank;
 
-  List<bool> answers = [false, true, true];
+  // List<bool> answers = [false, true, true];
 
   int questionNum = 0;
 
@@ -43,7 +41,7 @@ class _QuizPageState extends State<QuizPage> {
         padding: EdgeInsets.all(10.0),
         child: Center(
           child: Text(
-            questions[qnum],
+            questionBank[qnum].question ?? 'Question unavailable',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 25.0,
@@ -100,7 +98,7 @@ class _QuizPageState extends State<QuizPage> {
                 setState(() {
                   print('[True] Question num is $questionNum');
                   if (questionNum < 2) {
-                    if (answers[questionNum] == true) {
+                    if (questionBank[questionNum].answer == true) {
                       scorekeeper.add(
                         correct(),
                       );
@@ -144,8 +142,8 @@ class _QuizPageState extends State<QuizPage> {
                 setState(() {
                   print('[False] Question num is $questionNum');
                   if (questionNum < 2) {
-                    print(answers[questionNum]);
-                    if (answers[questionNum] == false) {
+                    print(questionBank[questionNum].answer);
+                    if (questionBank[questionNum].answer == false) {
                       scorekeeper.add(
                         correct(),
                       );
