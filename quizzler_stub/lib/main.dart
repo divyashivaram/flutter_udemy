@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quizzler_stub/question.dart';
 import 'quiz_brain.dart';
 
 void main() => runApp(Quizzler());
@@ -27,21 +26,19 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Icon> scorekeeper = [];
-  List<Question> questionBank = QuizBrain().questionBank;
+  // List<Icon> scorekeeper = [];
+  QuizBrain quizbrain = QuizBrain();
 
   // List<bool> answers = [false, true, true];
 
-  int questionNum = 0;
-
-  Widget question(int qnum) {
+  Widget question() {
     return Expanded(
       flex: 5,
       child: Padding(
         padding: EdgeInsets.all(10.0),
         child: Center(
           child: Text(
-            questionBank[qnum].question ?? 'Question unavailable',
+            quizbrain.getQuestionText(),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 25.0,
@@ -73,7 +70,7 @@ class _QuizPageState extends State<QuizPage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        question(questionNum),
+        question(),
         Expanded(
           child: Padding(
             padding: EdgeInsets.all(15.0),
@@ -94,25 +91,8 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                print('The user picked True');
                 setState(() {
-                  print('[True] Question num is $questionNum');
-                  if (questionNum < 2) {
-                    if (questionBank[questionNum].answer == true) {
-                      scorekeeper.add(
-                        correct(),
-                      );
-                      questionNum++;
-                    } else {
-                      scorekeeper.add(
-                        wrong(),
-                      );
-                      questionNum++;
-                    }
-                  } else {
-                    questionNum = 0;
-                    scorekeeper = [];
-                  }
+                  quizbrain.nextQuestion();
                 });
               },
             ),
@@ -138,41 +118,17 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                print('The user picked False');
                 setState(() {
-                  print('[False] Question num is $questionNum');
-                  if (questionNum < 2) {
-                    print(questionBank[questionNum].answer);
-                    if (questionBank[questionNum].answer == false) {
-                      scorekeeper.add(
-                        correct(),
-                      );
-                      questionNum++;
-                    } else {
-                      scorekeeper.add(
-                        wrong(),
-                      );
-                      questionNum++;
-                    }
-                  } else {
-                    questionNum = 0;
-                    scorekeeper = [];
-                  }
+                  quizbrain.nextQuestion();
                 });
               },
             ),
           ),
         ),
         Row(
-          children: scorekeeper,
+          children: [Text('Score')],
         )
       ],
     );
   }
 }
-
-/*
-question1: 'You can lead a cow down stairs but not up stairs.', false,
-question2: 'Approximately one quarter of human bones are in the feet.', true,
-question3: 'A slug\'s blood is green.', true,
-*/
