@@ -26,10 +26,27 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  // List<Icon> scorekeeper = [];
+  List<Icon> scorekeeper = [];
   QuizBrain quizbrain = QuizBrain();
 
-  // List<bool> answers = [false, true, true];
+  void checkAnswer(bool userAnswer) {
+    bool correctAnswer = quizbrain.getAnswer();
+    if (correctAnswer == userAnswer) {
+      scorekeeper.add(
+        Icon(
+          Icons.check,
+          color: Colors.green,
+        ),
+      );
+    } else {
+      scorekeeper.add(
+        Icon(
+          Icons.clear,
+          color: Colors.red,
+        ),
+      );
+    }
+  }
 
   Widget question() {
     return Expanded(
@@ -93,6 +110,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 setState(() {
                   quizbrain.nextQuestion();
+                  checkAnswer(true);
                 });
               },
             ),
@@ -120,13 +138,14 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 setState(() {
                   quizbrain.nextQuestion();
+                  checkAnswer(false);
                 });
               },
             ),
           ),
         ),
         Row(
-          children: [Text('Score')],
+          children: scorekeeper,
         )
       ],
     );
