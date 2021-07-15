@@ -43,4 +43,17 @@ class QuizBrain {
   bool getAnswer() {
     return _questionBank[_questionNumber].answer ?? false;
   }
+
+  bool isFinished() {
+    // TODO: The quiz is technically finished only after the answer to last question is selected.
+    if (_questionNumber >= _questionBank.length - 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void resetQuiz() {
+    _questionNumber = 0;
+  }
 }
