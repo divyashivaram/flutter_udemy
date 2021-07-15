@@ -28,8 +28,7 @@ class _StoryPageState extends State<StoryPage> {
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/background.png'),
-          ),
+              image: AssetImage('images/background.png'), fit: BoxFit.cover),
         ),
         child: SafeArea(
           child: Column(
