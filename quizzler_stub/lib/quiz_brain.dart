@@ -31,9 +31,12 @@ class QuizBrain {
   ];
 
   void nextQuestion() {
-    if (_questionNumber < _questionBank.length - 1) {
+    if (_questionNumber <= _questionBank.length - 1) {
       _questionNumber++;
     }
+    // else if(_questionNumber == _questionBank.length - 1) {
+
+    // }
   }
 
   String getQuestionText() {
@@ -45,7 +48,6 @@ class QuizBrain {
   }
 
   bool isFinished() {
-    // TODO: The quiz is technically finished only after the answer to last question is selected.
     if (_questionNumber >= _questionBank.length - 1) {
       return true;
     } else {

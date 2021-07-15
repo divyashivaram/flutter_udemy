@@ -35,7 +35,6 @@ class _QuizPageState extends State<QuizPage> {
     bool endOfQuiz = quizbrain.isFinished();
 
     if (endOfQuiz == true) {
-      print('Reached the end of quiz');
       Alert(
         context: context,
         title: "QUIZZLER",
@@ -123,8 +122,8 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 setState(() {
-                  quizbrain.nextQuestion();
                   checkAnswer(true);
+                  quizbrain.nextQuestion();
                 });
               },
             ),
@@ -151,8 +150,8 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 setState(() {
-                  quizbrain.nextQuestion();
                   checkAnswer(false);
+                  quizbrain.nextQuestion();
                 });
               },
             ),
