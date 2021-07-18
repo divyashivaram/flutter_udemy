@@ -23,7 +23,7 @@ class IconContainerContent extends StatelessWidget {
           height: sizedBoxHeight,
         ),
         Text(
-          'Female',
+          label,
           style: labelStyle,
         ),
       ],

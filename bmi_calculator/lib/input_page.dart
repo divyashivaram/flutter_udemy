@@ -4,8 +4,9 @@ import 'icon_container_content.dart';
 import 'container_box.dart';
 
 const bottomContainerHeight = 100.0;
-const activeContainerColor = Color(0xff262A4D);
+Color activeContainerColor = Color(0xff262A4D);
 const bottomButtonColor = Color(0xffFB2767);
+enum GenderSpecs { Male, Female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -13,6 +14,15 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color updateColor(GenderSpecs chosenGender) {
+    if (chosenGender == GenderSpecs.Male) {
+      print(chosenGender);
+    } else {
+      print(chosenGender);
+    }
+    return Colors.white;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,28 +35,52 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: [
-                ContainerBox(
-                  activeContainerColor,
-                  IconContainerContent(FontAwesomeIcons.venus, 'FEMALE'),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        // activeContainerColor = updateColor(GenderSpecs.Female);
+                      });
+                    },
+                    child: ContainerBox(
+                      activeContainerColor,
+                      IconContainerContent(FontAwesomeIcons.venus, 'FEMALE'),
+                    ),
+                  ),
                 ),
-                ContainerBox(
-                  activeContainerColor,
-                  IconContainerContent(FontAwesomeIcons.mars, 'MALE'),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        // activeContainerColor = updateColor(GenderSpecs.Male);
+                      });
+                    },
+                    child: ContainerBox(
+                      activeContainerColor,
+                      IconContainerContent(FontAwesomeIcons.mars, 'MALE'),
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-          ContainerBox(
-            activeContainerColor,
+          Expanded(
+            child: ContainerBox(
+              activeContainerColor,
+            ),
           ),
           Expanded(
             child: Row(
               children: [
-                ContainerBox(
-                  activeContainerColor,
+                Expanded(
+                  child: ContainerBox(
+                    activeContainerColor,
+                  ),
                 ),
-                ContainerBox(
-                  activeContainerColor,
+                Expanded(
+                  child: ContainerBox(
+                    activeContainerColor,
+                  ),
                 ),
               ],
             ),

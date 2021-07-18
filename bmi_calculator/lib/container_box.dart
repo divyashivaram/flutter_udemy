@@ -9,12 +9,10 @@ class ContainerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        child: cardContent,
-        margin: containerMargin,
-        decoration: BoxDecoration(color: bgcolor),
-      ),
+    return Container(
+      child: cardContent,
+      margin: containerMargin,
+      decoration: BoxDecoration(color: bgcolor),
     );
   }
 }
