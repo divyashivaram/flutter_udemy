@@ -4,7 +4,8 @@ import 'icon_container_content.dart';
 import 'container_box.dart';
 
 const bottomContainerHeight = 100.0;
-Color activeContainerColor = Color(0xff262A4D);
+Color defaultCardColor = Color(0xff111428);
+Color activeCardColor = Color(0xff1D1F33);
 const bottomButtonColor = Color(0xffFB2767);
 enum GenderSpecs { Male, Female }
 
@@ -14,14 +15,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color updateColor(GenderSpecs chosenGender) {
-    if (chosenGender == GenderSpecs.Male) {
-      print(chosenGender);
-    } else {
-      print(chosenGender);
-    }
-    return Colors.white;
-  }
+  GenderSpecs? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +33,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        // activeContainerColor = updateColor(GenderSpecs.Female);
+                        selectedGender = GenderSpecs.Female;
                       });
                     },
                     child: ContainerBox(
-                      activeContainerColor,
+                      selectedGender == GenderSpecs.Female
+                          ? activeCardColor
+                          : defaultCardColor,
                       IconContainerContent(FontAwesomeIcons.venus, 'FEMALE'),
                     ),
                   ),
@@ -52,11 +48,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        // activeContainerColor = updateColor(GenderSpecs.Male);
+                        selectedGender = GenderSpecs.Male;
                       });
                     },
                     child: ContainerBox(
-                      activeContainerColor,
+                      selectedGender == GenderSpecs.Male
+                          ? activeCardColor
+                          : defaultCardColor,
                       IconContainerContent(FontAwesomeIcons.mars, 'MALE'),
                     ),
                   ),
@@ -66,7 +64,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ContainerBox(
-              activeContainerColor,
+              defaultCardColor,
             ),
           ),
           Expanded(
@@ -74,12 +72,12 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ContainerBox(
-                    activeContainerColor,
+                    defaultCardColor,
                   ),
                 ),
                 Expanded(
                   child: ContainerBox(
-                    activeContainerColor,
+                    defaultCardColor,
                   ),
                 ),
               ],
