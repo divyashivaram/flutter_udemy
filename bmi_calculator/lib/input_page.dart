@@ -30,33 +30,29 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ContainerBox(
+                    selectedGender == GenderSpecs.Female
+                        ? activeCardColor
+                        : defaultCardColor,
+                    IconContainerContent(FontAwesomeIcons.venus, 'FEMALE'),
+                    () {
                       setState(() {
                         selectedGender = GenderSpecs.Female;
                       });
                     },
-                    child: ContainerBox(
-                      selectedGender == GenderSpecs.Female
-                          ? activeCardColor
-                          : defaultCardColor,
-                      IconContainerContent(FontAwesomeIcons.venus, 'FEMALE'),
-                    ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ContainerBox(
+                    selectedGender == GenderSpecs.Male
+                        ? activeCardColor
+                        : defaultCardColor,
+                    IconContainerContent(FontAwesomeIcons.mars, 'MALE'),
+                    () {
                       setState(() {
                         selectedGender = GenderSpecs.Male;
                       });
                     },
-                    child: ContainerBox(
-                      selectedGender == GenderSpecs.Male
-                          ? activeCardColor
-                          : defaultCardColor,
-                      IconContainerContent(FontAwesomeIcons.mars, 'MALE'),
-                    ),
                   ),
                 ),
               ],
