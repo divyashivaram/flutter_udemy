@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_container_content.dart';
 import 'container_box.dart';
+import 'constants.dart';
 
-const bottomContainerHeight = 100.0;
-Color defaultCardColor = Color(0xff111428);
-Color activeCardColor = Color(0xff1D1F33);
-const bottomButtonColor = Color(0xffFB2767);
 enum GenderSpecs { Male, Female }
 
 class InputPage extends StatefulWidget {
@@ -32,8 +29,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ContainerBox(
                     selectedGender == GenderSpecs.Female
-                        ? activeCardColor
-                        : defaultCardColor,
+                        ? kActiveCardColor
+                        : kDefaultCardColor,
                     IconContainerContent(FontAwesomeIcons.venus, 'FEMALE'),
                     () {
                       setState(() {
@@ -45,8 +42,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ContainerBox(
                     selectedGender == GenderSpecs.Male
-                        ? activeCardColor
-                        : defaultCardColor,
+                        ? kActiveCardColor
+                        : kDefaultCardColor,
                     IconContainerContent(FontAwesomeIcons.mars, 'MALE'),
                     () {
                       setState(() {
@@ -60,7 +57,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ContainerBox(
-              defaultCardColor,
+              kDefaultCardColor,
             ),
           ),
           Expanded(
@@ -68,20 +65,20 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ContainerBox(
-                    defaultCardColor,
+                    kDefaultCardColor,
                   ),
                 ),
                 Expanded(
                   child: ContainerBox(
-                    defaultCardColor,
+                    kDefaultCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomButtonColor,
-            height: bottomContainerHeight,
+            color: kBottomButtonColor,
+            height: kBottomButtonHeight,
             child: TextButton(
               onPressed: () {},
               child: Text(
