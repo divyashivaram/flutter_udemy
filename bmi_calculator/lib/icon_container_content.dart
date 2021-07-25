@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class IconContainerContent extends StatelessWidget {
-  final IconData icon;
-  final String label;
+  final IconData? icon;
+  final String? label;
 
-  IconContainerContent(this.icon, this.label);
+  IconContainerContent([this.icon, this.label]);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +20,7 @@ class IconContainerContent extends StatelessWidget {
         SizedBox(
           height: kSizedBoxHeight,
         ),
-        Text(
-          label,
-          style: kLabelStyle,
-        ),
+        Text(label ?? "label unavailable", style: kLabelStyle),
       ],
     );
   }
