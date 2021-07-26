@@ -1,9 +1,11 @@
+import 'package:bmi_calculator/results.dart';
 import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_container_content.dart';
 import 'container_box.dart';
 import 'constants.dart';
+import 'results.dart';
 
 enum GenderSpecs { Male, Female }
 
@@ -194,7 +196,14 @@ class _InputPageState extends State<InputPage> {
             color: kBottomButtonColor,
             height: kBottomButtonHeight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Results(),
+                  ),
+                );
+              },
               child: Text(
                 "Calculate BMI",
                 style: TextStyle(color: Colors.white, fontSize: 30.0),
