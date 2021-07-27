@@ -15,8 +15,9 @@ class Results extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          Container(
+            padding: const EdgeInsets.all(15.0),
+            alignment: Alignment.bottomLeft,
             child: Text(
               'Your Result',
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 40.0),
@@ -42,6 +43,22 @@ class Results extends StatelessWidget {
                       '26.7',
                       style: kBmiNumStyle,
                     ),
+                  ),
+                  Column(
+                    children: [
+                      Center(
+                        child: Text(
+                          'Normal BMI Range:',
+                          style: kBmidescriptionStyle,
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          '18-2345 kg/m2',
+                          style: kBmidescriptionStyle,
+                        ),
+                      ),
+                    ],
                   ),
                   Center(
                     child: Text(

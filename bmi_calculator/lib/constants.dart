@@ -16,4 +16,4 @@ const TextStyle kBmiNumStyle =
 const kBmiTitleStyle = TextStyle(
     color: Colors.lightGreen, fontSize: 22.0, fontWeight: FontWeight.w700);
 const kBmiTextStyle = TextStyle(fontSize: 25.0);
-const kBmidescriptionStyle = TextStyle(fontSize: 25.0);
+const kBmidescriptionStyle = TextStyle(fontSize: 22.0);
