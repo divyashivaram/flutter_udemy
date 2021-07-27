@@ -14,12 +14,7 @@ class BottomButton extends StatelessWidget {
       height: kBottomButtonHeight,
       child: TextButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => callback(),
-            ),
-          );
+          callback();
         },
         child: Text(
           displayText,

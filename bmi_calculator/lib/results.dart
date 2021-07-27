@@ -34,22 +34,19 @@ class Results extends StatelessWidget {
                   Center(
                     child: Text(
                       'OVERWEIGHT',
-                      style: TextStyle(
-                          color: Colors.lightGreen,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w700),
+                      style: kBmiTitleStyle,
                     ),
                   ),
                   Center(
                     child: Text(
                       '26.7',
-                      style: kNumberStyle,
+                      style: kBmiNumStyle,
                     ),
                   ),
                   Center(
                     child: Text(
                       'You have a higher than normal body weight. Try to exercise more.',
-                      style: TextStyle(fontSize: 25.0),
+                      style: kBmidescriptionStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -58,45 +55,10 @@ class Results extends StatelessWidget {
             ),
           ),
           BottomButton(() {
-            print('done');
+            Navigator.pop(context);
           }, 'Recalculate BMI')
         ],
       ),
     );
   }
 }
-
-// Expanded(
-//             flex: 5,
-//             child: Container(
-//               color: kActiveCardColor,
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                 crossAxisAlignment: CrossAxisAlignment.stretch,
-//                 children: [
-//                   Center(
-//                     child: Text(
-//                       'OVERWEIGHT',
-//                       style: TextStyle(
-//                           color: Colors.lightGreen,
-//                           fontSize: 20.0,
-//                           fontWeight: FontWeight.w700),
-//                     ),
-//                   ),
-//                   Center(
-//                     child: Text(
-//                       '26.7',
-//                       style: kNumberStyle,
-//                     ),
-//                   ),
-//                   Center(
-//                     child: Text(
-//                       'You have a higher than normal body weight. Try to exercise more.',
-//                       style: TextStyle(fontSize: 25.0),
-//                       textAlign: TextAlign.center,
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),

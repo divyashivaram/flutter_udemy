@@ -11,3 +11,9 @@ const TextStyle kNumberStyle =
     TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
 const Color kSmallButtonFillColor = Color(0xff1C1F32);
 const kSmallButtonElevation = 40.0;
+const TextStyle kBmiNumStyle =
+    TextStyle(fontSize: 70.0, fontWeight: FontWeight.w900);
+const kBmiTitleStyle = TextStyle(
+    color: Colors.lightGreen, fontSize: 22.0, fontWeight: FontWeight.w700);
+const kBmiTextStyle = TextStyle(fontSize: 25.0);
+const kBmidescriptionStyle = TextStyle(fontSize: 25.0);
