@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
-import 'bottom_button.dart';
-import 'constants.dart';
-import 'container_box.dart';
+import '../components/bottom_button.dart';
+import '../constants.dart';
+import '../components/container_box.dart';
 
 class Results extends StatelessWidget {
+  final String bmiResult;
+  final String bmiValue;
+  final String bmiRangeText;
+
+  final String bmiDetailText;
+
+  Results(this.bmiResult, this.bmiValue, this.bmiRangeText, this.bmiDetailText);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +42,13 @@ class Results extends StatelessWidget {
                 children: [
                   Center(
                     child: Text(
-                      'OVERWEIGHT',
+                      bmiResult.toUpperCase(),
                       style: kBmiTitleStyle,
                     ),
                   ),
                   Center(
                     child: Text(
-                      '26.7',
+                      bmiValue,
                       style: kBmiNumStyle,
                     ),
                   ),
@@ -48,13 +56,13 @@ class Results extends StatelessWidget {
                     children: [
                       Center(
                         child: Text(
-                          'Normal BMI Range:',
+                          bmiRangeText,
                           style: kBmidescriptionStyle,
                         ),
                       ),
                       Center(
                         child: Text(
-                          '18-2345 kg/m2',
+                          '12345',
                           style: kBmidescriptionStyle,
                         ),
                       ),
@@ -62,7 +70,7 @@ class Results extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'You have a higher than normal body weight. Try to exercise more.',
+                      bmiDetailText,
                       style: kBmidescriptionStyle,
                       textAlign: TextAlign.center,
                     ),
@@ -73,7 +81,7 @@ class Results extends StatelessWidget {
           ),
           BottomButton(() {
             Navigator.pop(context);
-          }, 'Recalculate BMI')
+          }, 'Re-Calculate BMI')
         ],
       ),
     );

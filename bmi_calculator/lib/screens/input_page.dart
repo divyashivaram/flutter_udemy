@@ -1,11 +1,12 @@
-import 'package:bmi_calculator/results.dart';
-import 'package:bmi_calculator/round_icon_button.dart';
+import 'package:bmi_calculator/screens/results.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_container_content.dart';
-import 'container_box.dart';
-import 'constants.dart';
+import '../components/icon_container_content.dart';
+import '../components/container_box.dart';
+import '../constants.dart';
 import 'results.dart';
+import 'package:bmi_calculator/bmi_calculator.dart';
 
 enum GenderSpecs { Male, Female }
 
@@ -197,10 +198,16 @@ class _InputPageState extends State<InputPage> {
             height: kBottomButtonHeight,
             child: TextButton(
               onPressed: () {
+                BmiCalculator bmicalculator = BmiCalculator();
+                double bmiValue = bmicalculator.calculateBmi(height, weight);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Results(),
+                    builder: (context) => Results(
+                        bmicalculator.bmiResult(bmiValue),
+                        bmiValue.toStringAsFixed(1),
+                        bmicalculator.bmiRange(bmiValue),
+                        bmicalculator.bmiDetailedResult(bmiValue)),
                   ),
                 );
               },
