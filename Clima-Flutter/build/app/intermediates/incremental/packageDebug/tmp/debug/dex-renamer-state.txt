@@ -1,0 +1,4 @@
+#Thu Oct 14 12:26:01 IST 2021
+base.0=/Users/divya/code/flutter_projects/Clima-Flutter/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
